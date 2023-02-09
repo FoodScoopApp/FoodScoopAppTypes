@@ -34,7 +34,10 @@ export type User = {
   email: string;
   name: string;
   pfp?: string;
-  tokens?: string[]; // For backend
+
+  // For backend
+  tokens?: string[];
+  notificationTokens: { type: "Android" | "iOS", token: string }[]
 
   // App specific info
   favMeals: MealID[];

@@ -1,4 +1,9 @@
-import { DaysOfWeek, DietaryRestriction, DiningHallName, MealPeriodName } from "./models";
+import {
+  DaysOfWeek,
+  DietaryRestriction,
+  DiningHallName,
+  MealPeriodName,
+} from "./models";
 
 export const convertDiningHall: { [Property in DiningHallName]: string } = {
   BP: "Bruin Plate",
@@ -11,7 +16,9 @@ export const convertDiningHall: { [Property in DiningHallName]: string } = {
 };
 
 // TODO: add conversion function for dietary restrictions: Surya?
-export const convertDietaryRestrictions: { [Property in DietaryRestriction]: string } = {
+export const convertDietaryRestrictions: {
+  [Property in DietaryRestriction]: string;
+} = {
   V: "",
   VG: "",
   APNT: "",
@@ -26,7 +33,7 @@ export const convertDietaryRestrictions: { [Property in DietaryRestriction]: str
   AFSH: "",
   HAL: "",
   LC: "",
-  HC: ""
+  HC: "",
 };
 
 export const convertMealPeriods: { [Property in MealPeriodName]: string } = {
@@ -45,3 +52,15 @@ export const convertDaysOfTheWeek: { [Property in DaysOfWeek]: string } = {
   Sat: "Saturday",
   Sun: "Sunday",
 };
+
+export const convertErrorCode: { [Property in ErrorCode]: string } = {
+  Internet: "There is either an error with your internet connection or the FoodScoop server is down.",
+  Unauthorized: "You are unauthorized to access this resource. (Are you signed in?)",
+  BadRequest: "There was an application error.",
+  InternalServer: "The FoodScoop server encountered an error.",
+  AlreadyExists: "This email is already registered. Please sign in.",
+
+  // TODO: write the rest of these messages
+  NotSignedUp: "",
+  WrongPassword: ""
+}
