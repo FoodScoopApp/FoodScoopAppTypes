@@ -1,9 +1,8 @@
 type Endpoint = "userexists" | "signup" | "signin";
 type method = "get" | "post" | "delete";
 
-// Requests
 type Authorization = { username: string, password: string }
-
+// Requests
 type CheckUserExistsReq = { email: string };
 type SignUpReq = { name: string; email: string; password: string };
 type SignInReq = { email: string; password: string };
