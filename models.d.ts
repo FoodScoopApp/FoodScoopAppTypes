@@ -62,6 +62,7 @@ export type Meal = {
   nutritionalInfo: NutritionalInfo;
 
   subcategory?: string;
+  mealID: string;
 };
 
 export type Subcategory = {
