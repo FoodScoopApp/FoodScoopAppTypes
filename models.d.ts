@@ -54,6 +54,7 @@ export type NutritionalInfo = {
 // Extended by Mongoose
 export type Meal = {
   id: MealID;
+  name: String;
   diningHall: DiningHallName;
   dietaryRestrictions: DietaryRestriction[];
   price: number;
