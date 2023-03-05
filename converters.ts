@@ -5,6 +5,8 @@ import {
   MealPeriodName,
 } from "./models";
 
+import { ErrorCode } from "./re";
+
 export const convertDiningHall: { [Property in DiningHallName]: string } = {
   BP: "Bruin Plate",
   DN: "De Neve",
@@ -62,5 +64,6 @@ export const convertErrorCode: { [Property in ErrorCode]: string } = {
 
   // TODO: write the rest of these messages
   NotSignedUp: "",
-  WrongPassword: ""
+  WrongPassword: "",
+  NotFound: ""
 }

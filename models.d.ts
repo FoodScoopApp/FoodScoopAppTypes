@@ -22,48 +22,50 @@ export type MealPeriodName = "B" | "L" | "D" | "E";
 export type DaysOfWeek = "Mon" | "Tue" | "Wed" | "Thu" | "Fri" | "Sat" | "Sun";
 
 // Aliases to classify which type of identifiers (should all be UUIDs)
-export type UserID = string;
 export type MealID = string;
+export type UCLAMealID = string;
 
 // Object Models
 
 // Extended by Mongoose
 export type User = {
   // Basic identifying info
-  id: UserID;
   email: string;
   name: string;
   pfp?: string;
+  hash: string;
 
   // For backend
   tokens?: string[];
-  notificationTokens: { type: "Android" | "iOS", token: string }[]
+  notificationTokens?: { device: "Android" | "iOS", token: string }[]
 
   // App specific info
-  favMeals: MealID[];
-  favDiningHalls: DiningHall[];
-  dietaryRestrictions: DietaryRestriction[];
+  favMeals?: UCLAMealID[];
+  favDiningHalls?: DiningHall[];
+  dietaryRestrictions?: DietaryRestriction[];
   mealPlan?: MealPlan;
   caloricIntakePerDay?: number;
 };
 
 export type NutritionalInfo = {
   calories: number; // going to add more later
+  sodium: number;
+  protein: number;
 }
 
 // Extended by Mongoose
 export type Meal = {
   id: MealID;
-  name: String;
+  name: string;
   diningHall: DiningHallName;
   dietaryRestrictions: DietaryRestriction[];
   price: number;
   description?: string;
-  ingredients: string[];
+  ingredients?: string;
   nutritionalInfo: NutritionalInfo;
 
   subcategory?: string;
-  mealID: string;
+  uclaMealID: UCLAMealID;
 };
 
 export type Subcategory = {
@@ -72,6 +74,7 @@ export type Subcategory = {
 };
 
 export type MealPeriod = {
+  name: MealPeriodName
   startTime: Date;
   endTime: Date;
   subcategories: Subcategory[];
@@ -81,15 +84,13 @@ export type MealPeriod = {
 export type DiningHall = {
   name: DiningHallName;
   date: Date;
-  activityLevel: number;
-  mealPeriods: {
-    [Property in MealPeriodName]?: MealPeriod;
-  };
+  activityLevel?: number;
+  mealPeriods: MealPeriod[]
 };
 
 // Extended by Mongoose
 export type ComprehensiveMealPlan = {
-  user: UserID;
+  user: string; // email
   startDate: Date;
   meals: { [Property in DaysOfWeek]: { [Property in MealPeriodName]: MealID[] } };
 };
