@@ -9,7 +9,7 @@ type Endpoint =
   | "mealagg"
   | "user"
   | "updateuser";
-type Method = "get" | "post" | "delete";
+type Method = "get" | "post";
 
 type Authorization = { username: string; password: string };
 
