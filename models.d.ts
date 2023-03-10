@@ -16,7 +16,7 @@ export type DietaryRestriction =
   | "HAL"
   | "LC"
   | "HC";
-export type DiningHallName = "BP" | "DN" | "RV" | "BC" | "EC" | "EA" | "SH";
+export type DiningHallName = "BP" | "DN" | "RW" | "RE" | "BC" | "EC" | "EA" | "SH" | "DR";
 export type MealPlan = "11" | "14" | "19";
 export type MealPeriodName = "B" | "L" | "D" | "E";
 export type DaysOfWeek = "Mon" | "Tue" | "Wed" | "Thu" | "Fri" | "Sat" | "Sun";
@@ -65,7 +65,6 @@ export type Meal = {
   nutritionalInfo: NutritionalInfo;
 
   subcategory?: string;
-  uclaMealID: UCLAMealID;
 };
 
 export type Subcategory = {
@@ -75,22 +74,23 @@ export type Subcategory = {
 
 export type MealPeriod = {
   name: MealPeriodName
-  startTime: Date;
-  endTime: Date;
+  startTime: string;
+  endTime: string;
   subcategories: Subcategory[];
 };
 
 // Extended by Mongoose
 export type DiningHall = {
   name: DiningHallName;
-  date: Date;
+  date: string;
   activityLevel?: number;
-  mealPeriods: MealPeriod[]
+  mealPeriods: MealPeriod[];
+  finished: boolean; // Mongoose only to determine to add or not
 };
 
 // Extended by Mongoose
 export type ComprehensiveMealPlan = {
   user: string; // email
-  startDate: Date;
+  startDate: string;
   meals: { [Property in DaysOfWeek]: { [Property in MealPeriodName]: MealID[] } };
 };

@@ -10,12 +10,21 @@ import { ErrorCode } from "./re";
 export const convertDiningHall: { [Property in DiningHallName]: string } = {
   BP: "Bruin Plate",
   DN: "De Neve",
-  RV: "Rendezvous",
+  RE: "Rendezvous East",
+  RW: "Rendezvous West",
   BC: "Bruin Cafe",
   EC: "Epicuria at Covel",
   EA: "Epicuria at Ackerman",
   SH: "Study at Hedrick",
+  DR: "The Drey"
 };
+
+export const convertScrapingMealPeriod: { [key: string] : MealPeriodName } = {
+  breakfast: "B",
+  lunch: "L",
+  dinner: "D",
+  extended: "E"
+}
 
 // TODO: add conversion function for dietary restrictions: Surya?
 export const convertDietaryRestrictions: {
