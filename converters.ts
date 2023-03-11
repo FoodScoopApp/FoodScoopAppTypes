@@ -76,3 +76,5 @@ export const convertErrorCode: { [Property in ErrorCode]: string } = {
   WrongPassword: "",
   NotFound: ""
 }
+
+export const dateFormat = "YYYY-MM-DD";

@@ -70,6 +70,7 @@ export type Meal = {
 export type Subcategory = {
   name: string;
   meals: MealID[];
+  mealsFilled?: Meal[];
 };
 
 export type MealPeriod = {
