@@ -19,7 +19,7 @@ type SignUpReq = { name: string; email: string; password: string };
 type SignInReq = { email: string; password: string };
 type DiningHallReq = { diningHallName: DiningHallName, date: string };
 type MealReq = { mealID: MealID };
-type MealAggReq = { mealIDs: MealID[] };
+type MealAggReq = { mealIDs: string };
 type UserReq = {};
 type ChangeUserPropReq = Partial<{
   [key in keyof Omit<
