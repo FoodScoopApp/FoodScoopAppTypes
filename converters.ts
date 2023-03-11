@@ -30,21 +30,21 @@ export const convertScrapingMealPeriod: { [key: string] : MealPeriodName } = {
 export const convertDietaryRestrictions: {
   [Property in DietaryRestriction]: string;
 } = {
-  V: "",
-  VG: "",
-  APNT: "",
-  ATNT: "",
-  AWHT: "",
-  AGTN: "",
-  ASOY: "",
-  ASES: "",
-  AMLK: "",
-  AEGG: "",
-  ACSF: "",
-  AFSH: "",
-  HAL: "",
-  LC: "",
-  HC: "",
+  V: "Vegetarian",
+  VG: "Vegan",
+  APNT: "Contains Peanuts",
+  ATNT: "Contains Tree Nutes",
+  AWHT: "Contains Wheat",
+  AGTN: "Contains Gluten",
+  ASOY: "Contains Soy",
+  ASES: "Contains Sesame",
+  AMLK: "Contains Dairy",
+  AEGG: "Contains Eggs",
+  ACSF: "Contains Crustacean Shellfish",
+  AFSH: "Contains Fish",
+  HAL: "Halal",
+  LC: "Low Carbon",
+  HC: "High Carbon",
 };
 
 export const convertMealPeriods: { [Property in MealPeriodName]: string } = {
