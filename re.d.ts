@@ -8,7 +8,8 @@ type Endpoint =
   | "meal"
   | "mealagg"
   | "user"
-  | "updateuser";
+  | "updateuser"
+  | "activity";
 type Method = "get" | "post";
 
 type Authorization = { username: string; password: string };
@@ -27,6 +28,7 @@ type ChangeUserPropReq = Partial<{
     "id" | "tokens" | "notificationTokens" | "hash"
   >]: User[key];
 }>;
+type ActivityLevelReq = { diningHall: DiningHallName };
 
 // Responses
 type SuccessResp = { success: true };
@@ -37,6 +39,8 @@ type MealResp = { meal: Meal };
 type MealAggResp = { meals: Meal[] };
 type UserResp = { user: User };
 type ChangeUserPropResp = SuccessResp;
+type ActivityLevelResp = { level: number | null };
+type ActivityLevelAggResp = { [Property in DiningHallName]: number | null };
 
 // Errors
 type ErrorCodeConnection =
@@ -58,4 +62,6 @@ type Resp =
   | MealResp
   | MealAggResp
   | UserResp
-  | ChangeUserPropResp;
+  | ChangeUserPropResp
+  | ActivityLevelResp
+  | ActivityLevelAggResp;
