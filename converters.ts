@@ -1,6 +1,8 @@
+import moment from "moment";
 import {
   DaysOfWeek,
   DietaryRestriction,
+  DiningHall,
   DiningHallName,
   MealPeriodName,
 } from "./models";
@@ -78,3 +80,18 @@ export const convertErrorCode: { [Property in ErrorCode]: string } = {
 }
 
 export const dateFormat = "YYYY-MM-DD";
+export const timeFormat = "YYYY-MM-DD-HH-MM-SS";
+
+export const getCurrentMealPeriodForDiningHall = (diningHall: DiningHall) => {
+    for (let mp of diningHall.mealPeriods) {
+        const now = moment();
+        const start = moment(mp.startTime, timeFormat);
+        const end = moment(mp.endTime, timeFormat);
+
+        if (now.diff(start) > 0 && end.diff(now) > 0) {
+            return mp;
+        }
+    }
+
+    return null;
+};
