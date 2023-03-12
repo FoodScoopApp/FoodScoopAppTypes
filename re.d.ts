@@ -9,7 +9,8 @@ type Endpoint =
   | "mealagg"
   | "user"
   | "updateuser"
-  | "activity";
+  | "activity"
+  | "pushToken";
 type Method = "get" | "post";
 
 type Authorization = { username: string; password: string };
@@ -29,6 +30,7 @@ type ChangeUserPropReq = Partial<{
   >]: User[key];
 }>;
 type ActivityLevelReq = { diningHall: DiningHallName };
+type PushTokenUpdateReq = { token: string, device: "Android" | "iOS" };
 
 // Responses
 type SuccessResp = { success: true };
