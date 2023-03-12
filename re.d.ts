@@ -44,7 +44,8 @@ type ErrorCodeConnection =
   | "Unauthorized"
   | "BadRequest"
   | "InternalServer"
-  | "NotFound";
+  | "NotFound"
+  | "Unknown";
 type ErrorCodeSignIn = "AlreadyExists" | "NotSignedUp" | "WrongPassword";
 type ErrorCode = ErrorCodeConnection | ErrorCodeSignIn;
 type ErrorResp = { error: ErrorCode; message?: string };
