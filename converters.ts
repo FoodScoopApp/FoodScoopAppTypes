@@ -107,6 +107,6 @@ export const getCurrentMealPeriodForDiningHall = (diningHall: DiningHall) => {
 };
 
 export const getImageID = (mealID: string) =>
-    "https://menu.dining.ucla.edu/Content/Images/RecipeImages/" +
+    "http://menu.dining.ucla.edu/Content/Images/RecipeImages/" +
     mealID +
     ".jpg";
