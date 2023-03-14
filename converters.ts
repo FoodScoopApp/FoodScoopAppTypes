@@ -91,7 +91,7 @@ export const convertErrorCode = (code: string) => {
 };
 
 export const dateFormat = "YYYY-MM-DD";
-export const timeFormat = "YYYY-MM-DD-HH-MM-SS";
+export const timeFormat = "YYYY-MM-DD-H:mm";
 export const mpFormat = "H:mm"
 
 export const accentColor = "#DB4D5B";
@@ -101,10 +101,6 @@ export const getCurrentMealPeriodForDiningHall = (diningHall: DiningHall) => {
 		const now = moment();
 		const start = moment(mp.startTime, mpFormat);
 		const end = moment(mp.endTime, mpFormat);
-		console.log(mp.endTime)
-		console.log(diningHall.name)
-		console.log(start.toString())
-		console.log(end.toString())
 
         if (now.diff(start) > 0 && end.diff(now) > 0) {
             return mp;
