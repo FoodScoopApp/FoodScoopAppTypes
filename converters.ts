@@ -92,15 +92,15 @@ export const convertErrorCode = (code: string) => {
 
 export const dateFormat = "YYYY-MM-DD";
 export const timeFormat = "YYYY-MM-DD-HH-MM-SS";
+export const mpFormat = "H:mm"
 
 export const accentColor = "#DB4D5B";
 
 export const getCurrentMealPeriodForDiningHall = (diningHall: DiningHall) => {
 	for (let mp of diningHall.mealPeriods) {
-		const format = "HH:SS"
 		const now = moment();
-		const start = moment(mp.startTime, format);
-		const end = moment(mp.endTime, format);
+		const start = moment(mp.startTime, mpFormat);
+		const end = moment(mp.endTime, mpFormat);
 		console.log(mp.endTime)
 		console.log(diningHall.name)
 		console.log(start.toString())
