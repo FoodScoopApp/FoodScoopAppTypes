@@ -96,5 +96,5 @@ export type DiningHall = {
 export type ComprehensiveMealPlan = {
   user: string; // email
   startDate: string;
-  meals: { [Property in DaysOfWeek]: { [Property in MealPeriodName]: MealID[] } };
+  meals: { [Property in MealPeriodName]: Meal };
 };
