@@ -41,7 +41,7 @@ export type User = {
 
   // App specific info
   favMeals?: UCLAMealID[];
-  favDiningHalls?: DiningHall[];
+  favDiningHalls?: DiningHallName[];
   dietaryRestrictions?: DietaryRestriction[];
   mealPlan?: MealPlan;
   caloricIntakePerDay?: number;

@@ -1,4 +1,4 @@
-import { DiningHallName, DiningHall, MealID, Meal, User } from "./models";
+import { DiningHallName, DiningHall, MealID, Meal, User, ComprehensiveMealPlan } from "./models";
 
 type Endpoint =
   | "userexists"
@@ -9,7 +9,8 @@ type Endpoint =
   | "mealagg"
   | "user"
   | "updateuser"
-  | "activity";
+  | "activity"
+  | "mealplan";
 type Method = "get" | "post";
 
 type Authorization = { username: string; password: string };
@@ -29,6 +30,7 @@ type ChangeUserPropReq = Partial<{
   >]: User[key];
 }>;
 type ActivityLevelReq = { diningHall: DiningHallName };
+type MealPlanReq = {};
 
 // Responses
 type SuccessResp = { success: true };
@@ -41,6 +43,7 @@ type UserResp = { user: User };
 type ChangeUserPropResp = SuccessResp;
 type ActivityLevelResp = { level: number | null };
 type ActivityLevelAggResp = { [Property in DiningHallName]: number | null };
+type MealPlanResp = ComprehensiveMealPlan;
 
 // Errors
 type ErrorCodeConnection =
@@ -64,4 +67,5 @@ type Resp =
   | UserResp
   | ChangeUserPropResp
   | ActivityLevelResp
-  | ActivityLevelAggResp;
+  | ActivityLevelAggResp
+  | MealPlanResp;
