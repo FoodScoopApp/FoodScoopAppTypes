@@ -50,6 +50,12 @@ export const convertDietaryRestrictions: {
     HC: "High Carbon",
 };
 
+export const inverseDietaryRestrictions = Object.entries(
+    convertDietaryRestrictions
+)
+    .filter((x) => x[1].startsWith("Contains"))
+    .map((x) => x[0]);
+
 export const convertMealPeriods: { [Property in MealPeriodName]: string } = {
     B: "Breakfast",
     L: "Lunch",
@@ -92,15 +98,15 @@ export const convertErrorCode = (code: string) => {
 
 export const dateFormat = "YYYY-MM-DD";
 export const timeFormat = "YYYY-MM-DD-H:mm";
-export const mpFormat = "H:mm"
+export const mpFormat = "H:mm";
 
 export const accentColor = "#DB4D5B";
 
 export const getCurrentMealPeriodForDiningHall = (diningHall: DiningHall) => {
-	for (let mp of diningHall.mealPeriods) {
-		const now = moment();
-		const start = moment(mp.startTime, mpFormat);
-		const end = moment(mp.endTime, mpFormat);
+    for (let mp of diningHall.mealPeriods) {
+        const now = moment();
+        const start = moment(mp.startTime, mpFormat);
+        const end = moment(mp.endTime, mpFormat);
 
         if (now.diff(start) > 0 && end.diff(now) > 0) {
             return mp;
@@ -111,8 +117,8 @@ export const getCurrentMealPeriodForDiningHall = (diningHall: DiningHall) => {
 };
 
 export const getKeyByValue = (object: any, value: any) => {
-    return Object.keys(object).find(k => object[k] === value);
-}
+    return Object.keys(object).find((k) => object[k] === value);
+};
 
 export const getImageID = (mealID: string) =>
     "http://menu.dining.ucla.edu/Content/Images/RecipeImages/" +
