@@ -1,8 +1,11 @@
+import moment from "moment";
 import {
     DaysOfWeek,
     DietaryRestriction,
+    DiningHall,
     DiningHallName,
     MealPeriodName,
+    MealPlan,
 } from "./models";
 
 import { ErrorCode } from "./re";
@@ -15,7 +18,7 @@ export const convertDiningHall: { [Property in DiningHallName]: string } = {
     BC: "Bruin Cafe",
     EC: "Epicuria at Covel",
     EA: "Epicuria at Ackerman",
-    SH: "Study at Hedrick",
+    SH: "The Study at Hedrick",
     DR: "The Drey",
 };
 
@@ -33,7 +36,7 @@ export const convertDietaryRestrictions: {
     V: "Vegetarian",
     VG: "Vegan",
     APNT: "Contains Peanuts",
-    ATNT: "Contains Tree Nutes",
+    ATNT: "Contains Tree Nuts",
     AWHT: "Contains Wheat",
     AGTN: "Contains Gluten",
     ASOY: "Contains Soy",
@@ -88,8 +91,32 @@ export const convertErrorCode = (code: string) => {
 };
 
 export const dateFormat = "YYYY-MM-DD";
+export const timeFormat = "YYYY-MM-DD-H:mm";
+export const mpFormat = "H:mm"
+
+export const accentColor = "#DB4D5B";
+
+export const getCurrentMealPeriodForDiningHall = (diningHall: DiningHall) => {
+	for (let mp of diningHall.mealPeriods) {
+		const now = moment();
+		const start = moment(mp.startTime, mpFormat);
+		const end = moment(mp.endTime, mpFormat);
+
+        if (now.diff(start) > 0 && end.diff(now) > 0) {
+            return mp;
+        }
+    }
+
+    return null;
+};
+
+export const getKeyByValue = (object: any, value: any) => {
+    return Object.keys(object).find(k => object[k] === value);
+}
 
 export const getImageID = (mealID: string) =>
-    "https://menu.dining.ucla.edu/Content/Images/RecipeImages/" +
+    "http://menu.dining.ucla.edu/Content/Images/RecipeImages/" +
     mealID +
     ".jpg";
+
+export const mealPlans: MealPlan[] = ["11", "14", "19"];

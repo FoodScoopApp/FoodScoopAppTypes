@@ -45,7 +45,10 @@ export type User = {
   dietaryRestrictions?: DietaryRestriction[];
   mealPlan?: MealPlan;
   caloricIntakePerDay?: number;
+  notificationsSent?: NotificationsSent;
 };
+
+export type NotificationsSent = { [Property in DiningHallName]: string | null }
 
 export type NutritionalInfo = {
   calories: number; // going to add more later

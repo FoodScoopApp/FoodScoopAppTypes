@@ -10,7 +10,8 @@ type Endpoint =
   | "user"
   | "updateuser"
   | "activity"
-  | "mealplan";
+  | "mealplan"
+  | "pushToken";
 type Method = "get" | "post";
 
 type Authorization = { username: string; password: string };
@@ -31,6 +32,7 @@ type ChangeUserPropReq = Partial<{
 }>;
 type ActivityLevelReq = { diningHall: DiningHallName };
 type MealPlanReq = {};
+type PushTokenUpdateReq = { token: string, device: "Android" | "iOS" };
 
 // Responses
 type SuccessResp = { success: true };
