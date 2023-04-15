@@ -16,7 +16,7 @@ export type DietaryRestriction =
   | "HAL"
   | "LC"
   | "HC";
-export type DiningHallName = "BP" | "DN" | "RW" | "RE" | "BC" | "EC" | "EA" | "SH" | "DR";
+export type DiningHallName = "BP" | "DN" | "RW" | "RE" | "BC" | "EC" | "EA" | "SH" | "DR" | "CN";
 export type MealPlan = "11" | "14" | "19";
 export type MealPeriodName = "B" | "L" | "D" | "E";
 export type DaysOfWeek = "Mon" | "Tue" | "Wed" | "Thu" | "Fri" | "Sat" | "Sun";

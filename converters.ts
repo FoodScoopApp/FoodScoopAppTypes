@@ -15,11 +15,12 @@ export const convertDiningHall: { [Property in DiningHallName]: string } = {
     DN: "De Neve",
     RE: "Rendezvous East",
     RW: "Rendezvous West",
-    BC: "Bruin Cafe",
+    BC: "Bruin Café",
     EC: "Epicuria at Covel",
     EA: "Epicuria at Ackerman",
     SH: "The Study at Hedrick",
     DR: "The Drey",
+    CN: "Café 1919"
 };
 
 export const convertScrapingMealPeriod: { [key: string]: MealPeriodName } = {
@@ -121,7 +122,7 @@ export const getKeyByValue = (object: any, value: any) => {
 };
 
 export const getImageID = (mealID: string) =>
-    "http://menu.dining.ucla.edu/Content/Images/RecipeImages/" +
+    "https://menu.dining.ucla.edu/Content/Images/RecipeImages/" +
     mealID +
     ".jpg";
 
